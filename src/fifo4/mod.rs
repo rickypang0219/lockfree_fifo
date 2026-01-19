@@ -1,11 +1,11 @@
 use std::cell::UnsafeCell;
-use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+use std::sync::Arc;
 use std::thread;
 use std::time::Instant;
 
 /// Wrapper to force alignment to 128 bytes (Apple Silicon / standard cache line).
-#[repr(align(64))]
+#[repr(align(128))]
 struct CachePadded<T>(T);
 
 /// Fields exclusive to the Producer thread.
